@@ -5,7 +5,12 @@ const path = require('path');
 
 router.get("/productlist",(req,res,next)=>{
 
-    res.json([{"title":"book",cost:230},{"title":"bottle", cost:50}]);
+    res.json([{"title":"book",cost:230},{"title":"bottle", cost:50},{"title":"bottle", cost:50},
+    {"title":"bottle1", cost:50},
+    {"title":"bottle2", cost:50},
+    {"title":"bottle3", cost:50},
+    {"title":"bottle4", cost:50}]);
+    
 
 })
 
