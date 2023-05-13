@@ -1,15 +1,30 @@
 const express =require('express');
 const router = express.Router();
 const path = require('path');
+const axios = require('axios');
 
+router.get("/productlist",async (req,res,next)=>{
 
-router.get("/productlist",(req,res,next)=>{
-
-    res.json([{"title":"book",cost:230},{"title":"bottle", cost:50},{"title":"bottle", cost:50},
-    {"title":"bottle1", cost:50},
-    {"title":"bottle2", cost:50},
-    {"title":"bottle3", cost:50},
-    {"title":"bottle4", cost:50}]);
+    const options = {
+        method: 'GET',
+        url: 'https://the-mexican-food-db.p.rapidapi.com/',
+        headers: {
+          'X-RapidAPI-Key': '372e1be677mshb27e20e9a8d6ffbp116237jsn3d8a3869bb79',
+          'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
+        }
+      };
+      try {
+        const response = await axios.request(options);
+        console.log(response.data);
+        res.json(response.data);
+    } catch (error) {
+        console.error(error);
+    }
+    // res.json([{"title":"book",cost:230},{"title":"bottle", cost:50},{"title":"bottle", cost:50},
+    // {"title":"bottle1", cost:50},
+    // {"title":"bottle2", cost:50},
+    // {"title":"bottle3", cost:50},
+    // {"title":"bottle4", cost:50}]);
     
 
 })
