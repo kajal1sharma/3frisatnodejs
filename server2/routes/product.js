@@ -16,7 +16,8 @@ router.get("/productlist",async (req,res,next)=>{
       try {
         const response = await axios.request(options);
         console.log(response.data);
-        res.json(response.data);
+        // res.json(response.data);
+        res.render('product',{productList:response.data, length:response.data.length})
     } catch (error) {
         console.error(error);
     }
