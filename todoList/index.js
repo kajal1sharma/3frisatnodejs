@@ -19,7 +19,7 @@ app.use("/user",userRoute)
 
 app.use("/",function(req,res, next){
     console.log("hello world")
-    // next();
+    next();
 });
 app.use("/",function(req,res, next){
     console.log("hello world 2")
