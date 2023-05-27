@@ -5,10 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="javascript.js"></script>
+    <style>
+        #signinform{
+            display: none;
+        }
+        #signupform{
+            display: none;
+        }
+    </style>
+    <script>
+        console.log("hello worls ")
+        window.addEventListener('load',()=>{
+
+            let signin = document.getElementById('signin');
+            let signup =document.getElementById('signup');
+
+            signin.addEventListener('click',()=>{
+                console.log("signin clicked");
+                let signupform = document.getElementById('signupform')
+                signupform.style.display="none"
+                let signinform =document.getElementById('signinform')
+                signinform.style.display="block"
+            })
+            signup.addEventListener('click',()=>{
+                console.log("signup clicked");
+                let signupform = document.getElementById('signupform')
+                signupform.style.display="block"
+                let signinform =document.getElementById('signinform')
+                signinform.style.display="none"
+            })
+
+
+        }) 
+    </script>
 </head>
 <body>
     <div>
-        <form action="/user/registration" method="post">
+        <button id="signin">SignIn</button>
+        <button id="signup">SignUp</button>
+        <form id="signinform" action="/user/login" method="post">
+            <h1>Login page</h1>
+            <input type="text" placeholder="username" name="username">
+            <input type="password" placeholder="password" name="password">
+            <input type="password" placeholder="retype password">
+            <input type ="submit">
+        </form>
+        <form id="signupform" action="/user/registration" method="post">
+            <h1>Sign up </h1>
             <input type="text" placeholder="username" name="username">
             <input type="password" placeholder="password" name="password">
             <input type="password" placeholder="retype password">
@@ -17,4 +61,5 @@
     </div>
     
 </body>
+
 </html>
